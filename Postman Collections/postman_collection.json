@@ -1,0 +1,351 @@
+{
+	"info": {
+		"_postman_id": "2350904b-e873-4ea2-b13b-ea533191349c",
+		"name": "Books",
+		"description": "This API allows you to reserve a book.\n\nThe API is available at `https://simple-books-api.glitch.me`\n\nThe Authentification folder is for client authentification\n\nRead doc: [https://github.com/vdespa/introduction-to-postman-course/blob/main/simple-books-api.md](https://github.com/vdespa/introduction-to-postman-course/blob/main/simple-books-api.md)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "STATUS",
+			"item": [
+				{
+					"name": "Get Status",
+					"id": "3d0570f1-1f8a-4733-b650-5b5a9eecadf3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{domainQA}}/{{status}}"
+					},
+					"response": []
+				}
+			],
+			"id": "248f38a2-6abe-40e3-81b2-d49d678be4c7",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "04652964-81c9-4c6e-9734-f1b2ce9cd9b8",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4051aa44-36ea-4295-9189-f4a550cda7ae",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "BOOKS",
+			"item": [
+				{
+					"name": "Get All Books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6a98a23-f097-4378-adae-8ea8f4661b96",
+								"exec": [
+									"let res = pm.response.json()\r",
+									"\r",
+									"\r",
+									"pm.test('status code of 200', ()=>{\r",
+									"    pm.response.to.have.status(200)\r",
+									"\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "d5a671db-0ebb-4ff0-94e8-d001c5d58f3e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{domainQA}}/{{books}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get books by limit",
+					"id": "4b1156ce-d7f6-488f-8abe-c239f49afdf1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domainQA}}/{{books}}?limit=fictionjkkj",
+							"host": [
+								"{{domainQA}}"
+							],
+							"path": [
+								"{{books}}"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "fictionjkkj"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get books by type",
+					"id": "a4951abd-a2e8-4e29-8f11-be53b7499b29",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domainQA}}/{{books}}?type=2",
+							"host": [
+								"{{domainQA}}"
+							],
+							"path": [
+								"{{books}}"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single book",
+					"id": "5f75c020-2ee7-4096-8e59-e0a6c6660c32",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{domainQA}}/{{books}}/true"
+					},
+					"response": []
+				}
+			],
+			"id": "a3ba40c2-5b8a-45fe-8793-8cae4d34e054"
+		},
+		{
+			"name": "API AUTHENTIFICATION",
+			"item": [
+				{
+					"name": "Client",
+					"id": "2da0174a-e2d0-4376-a9d3-abc81199aca1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"clientName\": \"Epiphany\",\r\n   \"clientEmail\": \"valentin@g.co\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{domainQA}}/api-clients/"
+					},
+					"response": []
+				}
+			],
+			"id": "dc58ad3b-55fb-4311-852f-ced74000a599",
+			"description": "To submit or view an order, you need to register your API client"
+		},
+		{
+			"name": "ORDERS",
+			"item": [
+				{
+					"name": "Submit an order",
+					"id": "d0423c71-9dfb-45c9-8ba8-f2964d129f96",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\":1,\r\n    \"customerName\":500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{domainQA}}/{{orders}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all orders",
+					"id": "855dcafd-5a8c-4a2f-8544-dfa2adc95e40",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\":1,\r\n    \"customerName\":500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{domainQA}}/{{orders}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get orders by Id",
+					"id": "d9839cc9-94f2-4d92-aeb7-e114f3485a70",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookId\":1,\r\n    \"customerName\":500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{domainQA}}/{{orders}}/flsTPesrzL982MM48fc7sflsTPesrzL982MM48fc7sflsTPesrzL982MM48fc7s"
+					},
+					"response": []
+				},
+				{
+					"name": "Update single property from exiting order",
+					"id": "fb0d031d-0a4b-42b1-aae1-a73469df577c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerName\": \"Wisdom\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{domainQA}}/{{orders}}/UzAVvl9zHI22xXfwwujL4"
+					},
+					"response": []
+				}
+			],
+			"id": "5ae4ee64-e52f-4ca3-b095-8070bed43341",
+			"description": "POST `/orders`\n\nAllows you to submit a new order. Requires authentication.\n\nThe request body needs to be in JSON format and include the following properties:\n\n- `bookId` - Integer - Required\n    \n- `customerName` - String - Required"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "89522a4b-1f51-44d3-a5b5-fe93e39f8428",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c3e4c7e1-024e-4ff8-8d63-1f83b56666f5",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "status",
+			"value": "status",
+			"type": "string"
+		},
+		{
+			"key": "books",
+			"value": "books",
+			"type": "string"
+		},
+		{
+			"key": "orders",
+			"value": "orders",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "60270c6b487cc82002b69d4eec99b678d2a01460edc965600217d51bf9633688"
+		}
+	]
+}
