@@ -406,6 +406,34 @@
 						"url": "{{domainQA}}/{{orders}}/UzAVvl9zHI22xXfwwujL4"
 					},
 					"response": []
+				},
+				{
+					"name": "Update single property from exiting order Copy",
+					"id": "f11ae3f0-cac2-4f50-9357-7ad8efcdc36e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerName\": \"Wisdom\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{domainQA}}/{{orders}}/UzAVvl9zHI22xXfwwujL4"
+					},
+					"response": []
 				}
 			],
 			"id": "5ae4ee64-e52f-4ca3-b095-8070bed43341",
