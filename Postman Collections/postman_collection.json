@@ -77,7 +77,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{domainQA}}/{{status}}"
+						"url": "{{baseUrl}}/status"
 					},
 					"response": []
 				}
