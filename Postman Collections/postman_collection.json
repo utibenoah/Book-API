@@ -70,6 +70,25 @@
 			"item": [
 				{
 					"name": "Get Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2f5baf4a-701e-4512-bfdc-e26197ee8b40",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status text OK\", function () {\r",
+									"    pm.expect(pm.response.json().status).to.equal('OK')\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "3d0570f1-1f8a-4733-b650-5b5a9eecadf3",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -337,7 +356,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "89522a4b-1f51-44d3-a5b5-fe93e39f8428",
+				"id": "5005f447-d71b-4f24-9079-8896818a3a1b",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -348,35 +367,21 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "c3e4c7e1-024e-4ff8-8d63-1f83b56666f5",
+				"id": "1b437249-5c64-4230-b503-8fa8c051bfbd",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					""
+					"pm.test(\"Content-Type is present\", function () {\r",
+					"    pm.response.to.have.header(\"Content-Type\");\r",
+					"});\r",
+					"pm.test(\"Response time is less than 3000ms\", function () {\r",
+					"    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+					"});"
 				]
 			}
 		}
 	],
 	"variable": [
-		{
-			"key": "status",
-			"value": "status",
-			"type": "string"
-		},
-		{
-			"key": "books",
-			"value": "books",
-			"type": "string"
-		},
-		{
-			"key": "orders",
-			"value": "orders",
-			"type": "string"
-		},
-		{
-			"key": "token",
-			"value": "60270c6b487cc82002b69d4eec99b678d2a01460edc965600217d51bf9633688"
-		},
 		{
 			"key": "baseUrl",
 			"value": "https://simple-books-api.glitch.me"
