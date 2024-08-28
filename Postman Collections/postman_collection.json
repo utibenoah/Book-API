@@ -189,6 +189,21 @@
 				},
 				{
 					"name": "Get books by type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f7e00077-e28e-4545-bdb7-8c87b7a8fe67",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "a4951abd-a2e8-4e29-8f11-be53b7499b29",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -197,17 +212,18 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domainQA}}/{{books}}?type=2",
+							"raw": "{{baseUrl}}/books?type=fiction",
 							"host": [
-								"{{domainQA}}"
+								"{{baseUrl}}"
 							],
 							"path": [
-								"{{books}}"
+								"",
+								"books"
 							],
 							"query": [
 								{
 									"key": "type",
-									"value": "2"
+									"value": "fiction"
 								}
 							]
 						}
