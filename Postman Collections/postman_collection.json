@@ -17,10 +17,24 @@
 							"script": {
 								"id": "6f1332f5-ce05-4be5-baf4-496abe7be116",
 								"exec": [
-									"pm.test(\"API is available 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
+									"pm.test(\"API is available 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
 									"    let clientAccessToken=pm.response.json().accessToken\r",
+									"    pm.collectionVariables.set('clientAccessToken',clientAccessToken)\r",
 									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "068beb2e-b1b0-4229-85f7-044f560e7106",
+								"exec": [
+									"let d= Date.now()\r",
+									"let clientEmail=`John${d}@gmail.com` \r",
+									"pm.collectionVariables.set('clientEmail',clientEmail)"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -36,7 +50,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"clientName\": \"Epiphany\",\r\n   \"clientEmail\": \"valentin@g.co\"\r\n}",
+							"raw": "{\r\n   \"clientName\": \"Epiphany\",\r\n   \"clientEmail\": \"${{clientEmail}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -366,6 +380,14 @@
 		{
 			"key": "baseUrl",
 			"value": "https://simple-books-api.glitch.me"
+		},
+		{
+			"key": "clientEmail",
+			"value": ""
+		},
+		{
+			"key": "clientAccessToken",
+			"value": ""
 		}
 	]
 }
