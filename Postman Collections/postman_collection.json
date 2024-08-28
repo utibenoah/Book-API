@@ -138,13 +138,9 @@
 							"script": {
 								"id": "d6a98a23-f097-4378-adae-8ea8f4661b96",
 								"exec": [
-									"let res = pm.response.json()\r",
-									"\r",
-									"\r",
-									"pm.test('status code of 200', ()=>{\r",
-									"    pm.response.to.have.status(200)\r",
-									"\r",
-									"})"
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -158,7 +154,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{domainQA}}/{{books}}"
+						"url": "{{baseUrl}}/books"
 					},
 					"response": []
 				},
