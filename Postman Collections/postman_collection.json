@@ -159,7 +159,7 @@
 					"response": []
 				},
 				{
-					"name": "Get books by limit",
+					"name": "Get single books",
 					"id": "4b1156ce-d7f6-488f-8abe-c239f49afdf1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -168,17 +168,19 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domainQA}}/{{books}}?limit=fictionjkkj",
+							"raw": "{{baseUrl}}/books/books/:bookId",
 							"host": [
-								"{{domainQA}}"
+								"{{baseUrl}}"
 							],
 							"path": [
-								"{{books}}"
+								"books",
+								"books",
+								":bookId"
 							],
-							"query": [
+							"variable": [
 								{
-									"key": "limit",
-									"value": "fictionjkkj"
+									"key": "bookId",
+									"value": "2"
 								}
 							]
 						}
