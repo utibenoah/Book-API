@@ -159,7 +159,22 @@
 					"response": []
 				},
 				{
-					"name": "Get single books",
+					"name": "Get books by limit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "62b9a2e8-38b7-416c-9ec0-049296b1129f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "4b1156ce-d7f6-488f-8abe-c239f49afdf1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -168,19 +183,18 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/books/books/:bookId",
+							"raw": "{{baseUrl}}/books?limit=3",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"books",
-								"books",
-								":bookId"
+								"books"
 							],
-							"variable": [
+							"query": [
 								{
-									"key": "bookId",
-									"value": "2"
+									"key": "limit",
+									"value": "3",
+									"type": "text"
 								}
 							]
 						}
