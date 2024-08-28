@@ -7,6 +7,35 @@
 	},
 	"item": [
 		{
+			"name": "API AUTHENTIFICATION",
+			"item": [
+				{
+					"name": "Client",
+					"id": "2da0174a-e2d0-4376-a9d3-abc81199aca1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"clientName\": \"Epiphany\",\r\n   \"clientEmail\": \"valentin@g.co\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{domainQA}}/api-clients/"
+					},
+					"response": []
+				}
+			],
+			"id": "dc58ad3b-55fb-4311-852f-ced74000a599",
+			"description": "To submit or view an order, you need to register your API client"
+		},
+		{
 			"name": "STATUS",
 			"item": [
 				{
@@ -153,35 +182,6 @@
 				}
 			],
 			"id": "a3ba40c2-5b8a-45fe-8793-8cae4d34e054"
-		},
-		{
-			"name": "API AUTHENTIFICATION",
-			"item": [
-				{
-					"name": "Client",
-					"id": "2da0174a-e2d0-4376-a9d3-abc81199aca1",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"clientName\": \"Epiphany\",\r\n   \"clientEmail\": \"valentin@g.co\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{domainQA}}/api-clients/"
-					},
-					"response": []
-				}
-			],
-			"id": "dc58ad3b-55fb-4311-852f-ced74000a599",
-			"description": "To submit or view an order, you need to register your API client"
 		},
 		{
 			"name": "ORDERS",
@@ -346,6 +346,10 @@
 		{
 			"key": "token",
 			"value": "60270c6b487cc82002b69d4eec99b678d2a01460edc965600217d51bf9633688"
+		},
+		{
+			"key": "baseUrl",
+			"value": "https://simple-books-api.glitch.me"
 		}
 	]
 }
