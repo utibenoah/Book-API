@@ -253,7 +253,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{domainQA}}/{{books}}/true"
+						"url": "{{baseUrl}}/books/1"
 					},
 					"response": []
 				}
