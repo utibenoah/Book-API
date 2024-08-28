@@ -310,6 +310,21 @@
 				},
 				{
 					"name": "Get all orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2928c2da-75e7-414e-80d5-82370c0f3b1e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "855dcafd-5a8c-4a2f-8544-dfa2adc95e40",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -318,7 +333,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{token}}"
+								"token": "{{clientAccessToken}}"
 							}
 						},
 						"method": "GET",
@@ -332,7 +347,7 @@
 								}
 							}
 						},
-						"url": "{{domainQA}}/{{orders}}"
+						"url": "{{baseUrl}}/orders"
 					},
 					"response": []
 				},
@@ -346,7 +361,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{token}}"
+								"token": "{{clientAccessToken}}"
 							}
 						},
 						"method": "GET",
@@ -360,7 +375,7 @@
 								}
 							}
 						},
-						"url": "{{domainQA}}/{{orders}}/flsTPesrzL982MM48fc7sflsTPesrzL982MM48fc7sflsTPesrzL982MM48fc7s"
+						"url": "{{baseUrl}}//orders/{{orderId}}"
 					},
 					"response": []
 				},
