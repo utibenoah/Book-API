@@ -273,21 +273,21 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{token}}"
+								"token": "{{clientAccessToken}}"
 							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"bookId\":1,\r\n    \"customerName\":500\r\n}",
+							"raw": "{\r\n    \"bookId\":1,\r\n    \"customerName\":\"john\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{domainQA}}/{{orders}}"
+						"url": "{{domainQA}}/orders"
 					},
 					"response": []
 				},
