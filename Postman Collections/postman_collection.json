@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "2350904b-e873-4ea2-b13b-ea533191349c",
-		"name": "Books",
+		"name": "books_api",
 		"description": "This API allows you to reserve a book.\n\nThe API is available at `https://simple-books-api.glitch.me`\n\nThe Authentification folder is for client authentification\n\nRead doc: [https://github.com/vdespa/introduction-to-postman-course/blob/main/simple-books-api.md](https://github.com/vdespa/introduction-to-postman-course/blob/main/simple-books-api.md)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
