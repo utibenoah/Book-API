@@ -265,6 +265,23 @@
 			"item": [
 				{
 					"name": "Submit an order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bab90213-bfdd-4899-9823-a30c697989ff",
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"    let orderId=pm.response.json().orderId\r",
+									"    pm.collectionVariables.set('orderId', orderId)\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "d0423c71-9dfb-45c9-8ba8-f2964d129f96",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -287,7 +304,7 @@
 								}
 							}
 						},
-						"url": "{{domainQA}}/orders"
+						"url": "{{baseUrl}}/orders"
 					},
 					"response": []
 				},
@@ -420,6 +437,10 @@
 		},
 		{
 			"key": "clientAccessToken",
+			"value": ""
+		},
+		{
+			"key": "orderId",
 			"value": ""
 		}
 	]
