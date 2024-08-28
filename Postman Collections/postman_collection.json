@@ -381,6 +381,21 @@
 				},
 				{
 					"name": "Update single property from exiting order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1c0b99dc-7491-43cf-9f7a-6c1ecc210b3f",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "fb0d031d-0a4b-42b1-aae1-a73469df577c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -389,7 +404,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{token}}"
+								"token": "{{clientAccessToken}}"
 							}
 						},
 						"method": "PATCH",
@@ -403,13 +418,28 @@
 								}
 							}
 						},
-						"url": "{{domainQA}}/{{orders}}/UzAVvl9zHI22xXfwwujL4"
+						"url": "{{baseUrl}}/orders/{{orderId}}"
 					},
 					"response": []
 				},
 				{
 					"name": "Update single property from exiting order Copy",
-					"id": "f11ae3f0-cac2-4f50-9357-7ad8efcdc36e",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1c0b99dc-7491-43cf-9f7a-6c1ecc210b3f",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "9853ca14-b1cd-48be-9cef-f3955c177eb8",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -417,7 +447,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{token}}"
+								"token": "{{clientAccessToken}}"
 							}
 						},
 						"method": "PATCH",
@@ -431,7 +461,7 @@
 								}
 							}
 						},
-						"url": "{{domainQA}}/{{orders}}/UzAVvl9zHI22xXfwwujL4"
+						"url": "{{baseUrl}}/orders/{{orderId}}"
 					},
 					"response": []
 				}
