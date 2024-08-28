@@ -11,6 +11,22 @@
 			"item": [
 				{
 					"name": "Client",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6f1332f5-ce05-4be5-baf4-496abe7be116",
+								"exec": [
+									"pm.test(\"API is available 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    let clientAccessToken=pm.response.json().accessToken\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "2da0174a-e2d0-4376-a9d3-abc81199aca1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -27,7 +43,7 @@
 								}
 							}
 						},
-						"url": "{{domainQA}}/api-clients/"
+						"url": "{{baseUrl}}/api-clients/"
 					},
 					"response": []
 				}
